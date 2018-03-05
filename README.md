@@ -33,7 +33,7 @@ u = Universe('protein.psf', ['trajectory.dcd'])
 atomgroup = u.select_atoms(selection='backbone')
 ```
 
-2. The next step consists to compute the bootstrap mean RMSF for each residue selected. In order to calculate the bootstrap RMSF, *n_sample* conformations will be selected randomly with replacement from the trajectories. The random selection is then repeated *n_iteration* times, giving us a mean RMSF and standard deviation of the mean for each residue selected. Here in this example, 10,000 conformations will be selected randomly and repeated 1,000 times. As result, you will obtain a Pandas DataFrame containing with the following columns: resid, resname, segid, the mean RMSF and the standard deviation of the mean.
+2. The next step consists to compute the bootstrap mean RMSF for each residue selected. In order to calculate the bootstrap RMSF, *n_sample* conformations will be selected randomly with replacement from the trajectories. The random selection is then repeated *n_iteration* times, giving us a mean RMSF and standard deviation of the mean for each residue selected. Here in this example, 10,000 conformations will be selected randomly and repeated 1,000 times. As result, you will obtain a Pandas DataFrame with the following columns: resid, resname, segid, the mean RMSF and the standard deviation of the mean.
 
 ```python
 # Do a bootstrap
