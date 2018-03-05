@@ -10,7 +10,7 @@
 import matplotlib.pyplot as plt
 
 
-def plot_rmsf(fig_name, df, dssp_file=None, ymax=None):
+def plot_rmsf(fig_name, df, dssp_file=None, ymax=None, start_resid=0):
     color = 'dodgerblue'
 
     if ymax == None:
@@ -22,7 +22,7 @@ def plot_rmsf(fig_name, df, dssp_file=None, ymax=None):
 
     fig, ax = plt.subplots(figsize=(12, 4))
 
-    ax.plot(df['resid'], df['mean'], color=color, linewidth=1)
+    ax.plot(df['resid'] + (start_resid-1), df['mean'], color=color, linewidth=1)
     plt.fill_between(df['resid'], std_neg, std_pos, color=color, alpha=0.5)
 
     ax.set_ylim(0, ymax)

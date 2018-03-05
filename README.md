@@ -51,13 +51,13 @@ print rmsf
 459    265     PRO     B  3.495771  0.049302
 ```
 
-3. At the end, you can either save the results in a CSV file and/or directly plot the RMSF along the sequence. In that particular exemple, only the RMSF of residues that belong to the segid A will be plotted.
+3. At the end, you can either save the results in a CSV file and/or directly plot the RMSF along the sequence. In that particular exemple, only the RMSF of residues that belong to the segid A will be plotted. Also, resids will be renumbered with the first residu starting at 507 instead of 1.
 
 ```python
 # Save results in a CSV for later use
 b.save('rmsf_backbone.csv')
 # ... or/and plot the RMSF
-plot_rmsf('bootstrap_rmsf_A_CA.png', rmsf[rmsf['segid'] == 'A'], ymax=4)
+plot_rmsf('bootstrap_rmsf_A_CA.png', rmsf[rmsf['segid'] == 'A'], ymax=4, start_resid=507)
 ```
 
 ## License
