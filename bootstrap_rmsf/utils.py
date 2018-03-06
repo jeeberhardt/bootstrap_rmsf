@@ -13,17 +13,16 @@ import matplotlib.pyplot as plt
 def plot_rmsf(fig_name, df, dssp_file=None, ymax=None, start_resid=0):
     color = 'dodgerblue'
 
-    if ymax == None:
-        ymax = df['mean'].max() + 1.
+    if start_resid != 0:
+        start_resid -= 1
 
-    std_neg = df['mean'] - df['std']
-    std_neg[std_neg < 0] = 0
-    std_pos = df['mean'] + df['std']
+    if ymax == None:
+        ymax = df['rmsf'].max() + 1.
 
     fig, ax = plt.subplots(figsize=(12, 4))
 
-    ax.plot(df['resid'] + (start_resid-1), df['mean'], color=color, linewidth=1)
-    plt.fill_between(df['resid'], std_neg, std_pos, color=color, alpha=0.5)
+    ax.plot(df['resid'] + start_resid, df['rmsf'], color=color, linewidth=0.5)
+    plt.fill_between(df['resid'] + start_resid, df['low'], df['high'], color=color, alpha=0.5)
 
     ax.set_ylim(0, ymax)
 
