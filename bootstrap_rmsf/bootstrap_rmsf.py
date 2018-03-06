@@ -33,9 +33,9 @@ class Bootstrap_RMSF():
 
     def _confidence_interval(self, sample, bootstrap, alpha=0.05):
         """ Compute the pivot confidence interval with alpha"""
-        s = np.sort((bootstrap.transpose() - sample).transpose())
-        low = sample + np.percentile(s, 100 * (alpha), axis=1)
-        high = sample + np.percentile(s, 100 * (1-alpha), axis=1)
+        s = np.sort(bootstrap)
+        low = 2*sample - np.percentile(s, 100 * (1-alpha/2), axis=1)
+        high = 2*sample - np.percentile(s, 100 * (alpha/2), axis=1)
         return low, high
 
     def run(self, atomgroup):
