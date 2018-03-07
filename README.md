@@ -1,12 +1,9 @@
 # Bootstrap RMSF
 General recipe to compute bootstraped RMSF from MD simulations.
 
-## Introduction
-
 ## Documentation
 
 ### Prerequisites
-
 You need, at a minimum (requirements.txt):
 
 * Python 2.7
@@ -16,7 +13,6 @@ You need, at a minimum (requirements.txt):
 * MDAnalysis
 
 ### Bootstrap RMSF
-
 ```python
 # Modules to import at the beginning
 from MDAnalysis import Universe
@@ -64,6 +60,15 @@ from bootstrap_rmsf import plot_rmsf
 
 plot_rmsf('bootstrap_rmsf_A_CA.png', rmsf[rmsf['segid'] == 'A'], ymax=4, start_resid=507)
 ```
+
+## References
+1. [Bootstrap methods: Another look at the jackknife (original paper)](https://projecteuclid.org/download/pdf_1/euclid.aos/1176344552)
+2. [The Bootstrap](http://www.stat.cmu.edu/~cshalizi/402/lectures/08-bootstrap/lecture-08.pdf)
+3. [Bootstrap confidence intervals](https://ocw.mit.edu/courses/mathematics/18-05-introduction-to-probability-and-statistics-spring-2014/readings/MIT18_05S14_Reading24.pdf) 
+
+## To-do list
+- [ ] Multiprocessing
+- [ ] Welch t-test
 
 ## License
 MIT
